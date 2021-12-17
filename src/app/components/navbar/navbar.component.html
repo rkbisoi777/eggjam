@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button  routerLink="/" >
+      <mat-icon>menu_book</mat-icon>
+    </button>
+    <span>EggJam</span>
+    <span class="example-spacer"></span>
+    <!-- {{user.authorities[0].authority}} -->
+    <button *ngIf="!isLoggedIn" routerLink="/login" mat-stroked-button class="light-button mr20">
+        Login
+    </button>
+    <button *ngIf="!isLoggedIn" routerLink="/signup"  mat-raised-button color="basic">
+      Sign Up
+    </button>
+    <a *ngIf="isLoggedIn && user.authorities[0].authority=='admin'" routerLink="/admin/home" mat-flat-button color="primary" class="mr30" >
+      {{user.username}}
+    </a>
+    <a *ngIf="isLoggedIn && user.authorities[0].authority=='normal'" routerLink="/user-dashboard/user-home" mat-flat-button color="primary" class="mr30" >
+      {{user.username}}
+    </a>
+    <button *ngIf="isLoggedIn" (click)="logout()" mat-raised-button color="basic">
+      Log Out
+    </button>
+</mat-toolbar>

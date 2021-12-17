@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader class="ml10" style="margin-bottom: -15px;">Menu</div>
+        <button mat-list-item mat-list-item routerLink="/user-dashboard/user-home">
+            <mat-icon mat-list-icon>home</mat-icon>
+            <span style="margin-top: 3px;">Home</span>
+        </button>
+        <button mat-list-item routerLink="/user-dashboard/profile">
+            <mat-icon mat-list-icon>account_circle</mat-icon>
+            <span style="margin-top: 2px;">Profile</span>
+        </button>
+        <div mat-subheader class="ml10" style="margin-bottom: -15px;">Quizzes</div>
+        <button mat-list-item routerLink="/user-dashboard/quiz/0">
+            <mat-icon mat-list-icon>quiz</mat-icon>
+            <span style="margin-left:10px; margin-top: 4px;">All Quizzes</span>
+        </button>
+        <button [routerLink]="'/user-dashboard/quiz/'+c.cid" mat-list-item *ngFor="let c of categories">
+            <mat-icon mat-list-icon>category</mat-icon>
+            <span style="margin-left:10px; margin-top: 4px;">{{c.title}}</span>
+        </button>
+        <button mat-list-item>
+            <mat-icon mat-list-icon>logout</mat-icon>
+            <span style="margin-top: 2px;">Log Out</span>
+        </button>
+    </mat-action-list>
+</mat-card>

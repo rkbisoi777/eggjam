@@ -1,0 +1,42 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <h1 class="ml10" style="margin-bottom: -12px;">All Quizzes</h1>
+        <div class="row" *ngIf="quizzes">
+            <div class="col-md-4 mt20" *ngFor="let q of quizzes">
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title >{{q.title}}</mat-card-title>
+                        <mat-card-subtitle >{{q.category.title}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="truncate">{{q.description}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        
+                        <div class="row mr10">
+                            <div class="col-md-6">
+                                <button mat-button color="primary">Questions : {{q.numberOfQuestion}}</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button mat-button color="primary">Max Marks : {{q.maxMarks}}</button>
+                            </div>
+                        </div>
+                        <div class="row mt10 mb10">
+                            <div class="col-md-12 text-center">
+                                <button mat-raised-button [routerLink]="'/user-dashboard/prequiz/'+q.qid" color="warn">Start</button>
+                            </div>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        <div class="col-md-12 mt40" *ngIf="quizzes != undefined && quizzes.length==0">
+            <mat-card>
+                <mat-card-content>
+                    <h2 style="color: red;">No Quiz in this category</h2>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

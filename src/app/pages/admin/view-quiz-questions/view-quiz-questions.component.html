@@ -1,0 +1,45 @@
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-10">
+            <h2 class="ml40 mt10">Questions of <span style="font-weight: bold;">{{qTitle}}</span></h2>
+        </div>
+        <div class="col-md-2 mt10">
+            <button mat-raised-button color="primary" [routerLink]="'/admin/add-question/'+qId+'/'+qTitle">Add Question</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <mat-card *ngFor="let q of questions; let i = index" class="mt10">
+                <mat-card-content>
+                    <p>
+                        <b class="mr10">Q.{{i+1}})</b> <b><span [innerHTML]="q.content"></span></b>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><b class="mr10">1)</b>{{q.option1}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b class="mr10">2)</b>{{q.option2}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><b class="mr10">3)</b>{{q.option3}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b class="mr10">4)</b>{{q.option4}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <p class="mt10 ml10"><b class="mr10">Correct Answer :</b>{{q.answer}}</p>
+                </mat-card-content>
+                <mat-card-actions class="text-center">
+                    <button mat-stroked-button color="primary">UPDATE</button>
+                    <button (click)="delete(q.quesId)" mat-stroked-button color="warn">DELETE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

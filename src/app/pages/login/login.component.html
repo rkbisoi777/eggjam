@@ -1,0 +1,32 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row mt30" >
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                <div class="container text-center">
+                    <img src="../../../assets/logo.png" width="72" height="72"  alt="">
+                </div>
+                <h1 class="text-center">Login Here</h1>
+                <form >
+                    <!-- Username -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input required [(ngModel)]="loginData.username" name="username" matInput placeholder="Enter Here">
+                        <mat-hint>Enter Valid Username</mat-hint>
+                    </mat-form-field>
+                    <!-- Password -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input required [(ngModel)]="loginData.password" name="password" type="password" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div class="container text-center">
+                        <button  (click)="formSubmit()" mat-raised-button color="primary">Login</button>
+                        <button class="ml20" (click)="reset()" mat-raised-button>Reset</button>
+                    </div>
+                </form>
+            </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
